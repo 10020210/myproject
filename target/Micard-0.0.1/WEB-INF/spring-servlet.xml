@@ -1,0 +1,64 @@
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:jee="http://www.springframework.org/schema/jee" xmlns:lang="http://www.springframework.org/schema/lang" xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:tx="http://www.springframework.org/schema/tx" xmlns:util="http://www.springframework.org/schema/util" xmlns:mvc="http://www.springframework.org/schema/mvc"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+              http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+              http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+              http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd
+              http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang.xsd
+              http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+              http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+    <context:annotation-config />
+    <context:component-scan base-package="com"/>
+    
+     <!-- Getting Database properties -->
+    <context:property-placeholder location="classpath:app.properties" />
+ 
+    <mvc:annotation-driven />
+   
+     
+ <!--   <bean class = "org.springframework.web.servlet.view.InternalResourceViewResolver">
+   
+       <property name="prefix">
+       <value>/WEB-INF/view/</value>
+       </property>
+       
+       <property name="suffix">
+        <value>.jsp</value>
+       </property>
+   
+   </bean> -->
+   
+   <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="${core.db.connection.driver_class}" />
+		<property name="username" value="${core.db.connection.username}" />
+		<property name="password" value="${core.db.connection.password}" />
+		<property name="url" value="${core.db.connection.url}" />
+	</bean>
+    
+    <bean id="connectwareJPAVendorAdapter"
+		class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+		<property name="showSql" value="${core.db.show_sql}" />
+		<property name="generateDdl" value="${core.db.generateDdl}" />
+		<property name="databasePlatform" value="${core.db.dialect}" />
+	</bean>
+
+
+    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <property name="packagesToScan" value="com.airport.model.domain" />
+        <property name="persistenceXmlLocation" value="classpath:META-INF/persistence.xml"/>
+        <property name="jpaVendorAdapter" ref="connectwareJPAVendorAdapter" />
+    </bean>
+    <tx:annotation-driven transaction-manager="transactionManager" />
+
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="entityManagerFactory" />
+    </bean>
+    
+      <bean id="freemarkerConfigFactory"
+		class="org.springframework.ui.freemarker.FreeMarkerConfigurationFactoryBean">
+		<property name="templateLoaderPath" value="classpath:/" />
+		</bean>
+    
+    </beans>

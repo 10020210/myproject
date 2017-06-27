@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+  <head>
+    <title>Spring Thyme Seed Starter Manager</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" media="all" href="../../css/stsm.css" th:href="@{/css/stsm.css}"/>
+  </head>
+
+  <body>
+
+
+      <form action="#" th:action="@{/processregister}" th:object="${user}" method="post">
+    
+        <fieldset>
+          
+          <div>
+            <label for="fname">
+              <span th:text="#{user.fname}">FirstName</span>
+         
+            </label>
+            <input type="text" th:field="*{fname}"  />
+          </div>
+    
+          <div>
+            <label for="mobilenumber" th:text="#{user.mobilenumber}">Lname</label>
+             <input type="text" th:field="*{mobilenumber}" />
+          </div>
+                  <th>
+                    <button type="submit" name="submit" th:text="#{user.register}">/button>
+                  </th>
+              
+        </fieldset>
+          
+      </form>
+   
+
+  </body>
+</html>
