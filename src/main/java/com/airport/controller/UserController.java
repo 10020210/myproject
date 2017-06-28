@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,18 +38,17 @@ public class UserController extends BaseResource  {
 	     model.addAttribute("user", new UserMaster());
 	     return "register";
 	 }
-	 @RequestMapping(value="/processregister",method=RequestMethod.POST)
-		public String developersAdd(@RequestParam String fname, 
-				@RequestParam long mobilenumber, Model model) throws ServiceException {
-		 UserMaster user = new UserMaster();
-		user.setFname(fname);
-		user.setMobilenumber(mobilenumber);
-		userService.register(user);
+	 @RequestMapping(value="/register",method=RequestMethod.POST)
+	 public String addUser(
+			 final UserMaster user, final BindingResult bindingResult, final ModelMap model) throws ServiceException {
+		 if (bindingResult.hasErrors()) {
+			 return "register";
 
-			model.addAttribute("user", user);
-		
-			return "redirect:/register/" + user.getUserId();
-		}
+		 }
+		 this.userService.register(user);
+		 model.clear();
+		 return "redirect:/register";
+		 }
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public ModelAndView showLogin(HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView mav = new ModelAndView();
