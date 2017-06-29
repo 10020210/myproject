@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+  <link rel="shortcut icon" href="img/pmpmllogo.png">
+  <title>New User Registration</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  </head>
+  <body>
+    <div class="navbar navbar-inverse navbar-fixed-top" th:fragment="header">
+      <div class="container">
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li th:classappend="${module == 'home' ? 'active' : ''}">
+              <a href="#" th:href="@{/}">Contact</a>
+            </li>
+            <li th:classappend="${module == 'tasks' ? 'active' : ''}">
+              <a href="#" th:href="@{/task}">Help</a>
+              
+               <script type="text/javascript">
+  $(document).ready(function(){
+	    $("#checkrop").click(function(){
+	    	 if($(this).is(':checked')){
+	    		 $("#viewtempaddr").hide();
+	    		 document.getElementById("ropCheckValue").value="1";
+	    	    } else {
+	    	    	$("#viewtempaddr").show();
+	    	    	 document.getElementById("ropCheckValue").value="0";
+	    	    }
+	    	
+	    });
+	   
+	});
+      /*  function ropValidation(){
+    	   var rop=document.getElementById("checkrop");
+    	   if( rop.checked){
+    		   document.getElementById("temprop").display='block';
+    	   }else{
+    		   
+    	   }
+    	  
+       } */
+    </script>
+<script>
+function mobvalidatefun(e) {
+	var key;
+	var keychar;
+	if (window.event)
+	key = window.event.keyCode;
+	else if (e)
+	key = e.which;
+	else
+	return true;
+	keychar = String.fromCharCode(key);
+	keychar = keychar.toLowerCase();
+	// control keys
+	if ((key == null) || (key == 0) || (key == 8) || (key == 9)
+	|| (key == 13) || (key == 27))
+	return true;
+	else if (!(("0123456789abcdefghijklmnopqrstuvwxyz- ").indexOf(keychar) > -1)) {
+	return false;
+	}
+	}
+function addressvalidate(e) {
+	var key;
+	var keychar;
+	if (window.event)
+	key = window.event.keyCode;
+	else if (e)
+	key = e.which;
+	else
+	return true;
+	keychar = String.fromCharCode(key);
+	keychar = keychar.toLowerCase();
+	// control keys
+	if ((key == null) || (key == 0) || (key == 8) || (key == 9)
+	|| (key == 13) || (key == 27))
+	return true;
+	else if (!(("0123456789abcdefghijklmnopqrstuvwxyz#'.,-/ ").indexOf(keychar) > -1)) {
+	return false;
+	}
+	}
+function namevalidate(e) {
+	var key;
+	var keychar;
+	if (window.event)
+	key = window.event.keyCode;
+	else if (e)
+	key = e.which;
+	else
+	return true;
+	keychar = String.fromCharCode(key);
+	keychar = keychar.toLowerCase();
+	// control keys
+	if ((key == null) || (key == 0) || (key == 8) || (key == 9)
+	|| (key == 13) || (key == 27))
+	return true;
+	else if (!(("abcdefghijklmnopqrstuvwxyz ").indexOf(keychar) > -1)) {
+	return false;
+	}
+	}
+</script>
+<div align="center">
+<a href="#" >
+			<img src="gl/img/pmpmllogo.png">
+		</a>
+	<h2>PUNE MAHANAGAR PARIVAHAN MAHAMANDAL LTD</h2>
+	<img src="img/rainbowlogo.png" alt="rainbowlogo" style="width:138px;" >
+</div><hr>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,32 +1,91 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
+ <head>
     <title>Signup</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<link rel="stylesheet" 
+  href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+  <link rel="stylesheet" href="gl/style.css">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+     <script src="js/validation.js"></script>
+      <script src="js/custom.js"></script>
+          <link href="assets/css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+
 </head>
 <body>
+ <div th:insert="fragment/header :: header"></div>
+   <div class="navbar navbar-inverse navbar-fixed-top">
 <div class="container">
 <form class="form-narrow form-horizontal" method="post" th:action="@{/register}" th:object="${user}" th:fragment="user">
-  
-    <fieldset>
-        <legend>Please Sign Up</legend>
-    
-            <label for="fname" class="col-lg-2 control-label">First Name</label>
-            <div class="col-lg-10">
+		
+		<div class="title" style="color: #008fcd;">
+		Register an Account
+		
+		</div><br>
+		<div class="subtitle">
+		If You Already Have An Account, Please <a href="SignIn.jsp">Login</a>
+		
+		</div>
+		
+			<div class="row">
+	<div id="info" class="col-md-12" style="color: #00599b;">
+	<h3>PERSONAL INFORMATION</h3>
+	
+	</div></div><br>
+	
+<!-- 	     <label for="salutation" class="col-lg-2 control-label" >Salutation</label>
+           <select name="salutation" id="salutation" class="form-control" style="
+    width: 100%;
+" onblur="checkSalutation()" onchange="checkSalutation()">	
+<option value="">Select Salutation</option>
+		<option value="Mr.">Mr.</option>
+		<option value="Ms.">Ms.</option>
+		<option value="Mrs.">Mrs.</option>
+		<option value="Dr.">Dr.</option>
+		<option value="Prof.">Prof.</option>
+		<option value="Rev.">Rev.</option>
+
+	</select> -->
+	
+		            <label for="fname" class="col-lg-2 control-label" >First Name</label>
+            <div class="col-lg-10" >
                 <input type="text" class="form-control" id="fname" placeholder="fname" th:field="*{fname}" />
             </div>
+            
+             <label for="mname" class="col-lg-2 control-label" >MiddleName</label>
+            <div class="col-lg-10" >
+                <input type="text" class="form-control" id="mname" placeholder="mname" th:field="*{mname}" />
+            </div>
+            
             <label for="lname" class="col-lg-2 control-label">Last Name</label>
             <div class="col-lg-10">
                 <input type="text" class="form-control" id="lname" placeholder="lname" th:field="*{lname}"/>
         </div>
+        
+         <label for="mobilenumber" class="col-lg-2 control-label" >MobileNumber</label>
+            <div class="col-lg-10" >
+                <input type="text" class="form-control" id="mobilenumber" placeholder="mobilenumber" th:field="*{mobilenumber}" />
+            </div>
+            
+             <label for="fullnameOnCard" class="col-lg-2 control-label" >Full Name On Card</label>
+            <div class="col-lg-10" >
+                <input type="text" class="form-control" id="fullnameOnCard" placeholder="fullnameOnCard" th:field="*{fullnameOnCard}" />
+            </div>
+        
         <div class="form-group">
             <div class="col-lg-offset-2 col-lg-10">
                 <button type="submit" class="btn btn-default">Sign up</button>
             </div>
         </div>
-      
-    </fieldset>
+  
+  
 </form>
+</div>
 </div>
 </body>
 </html>
