@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+ 
+    <title>Profile Details</title>
+
+</head>
+<body>
+<div class="container">
+ 
+    <h2>User Details</h2>
+        <div>
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">User Id:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${user.userId}">User Id</p></div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">First Name:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${user.fname}">First Name</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Middele Name:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${user.mname}">Middele Name</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Last Name:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${user.lname}">Last Name</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">MobileNumber:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${user.mobilenumber}">MobileNumber</p>
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label class="col-sm-2 control-label">Full Name On Card:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${user.fullnameOnCard}">Full Name On Card</p>
+                    </div>
+                </div>
+                
+            </form>
+    </div>
+</div>
+ 
+</body>
+</html>

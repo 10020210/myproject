@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -47,14 +48,32 @@ public class UserController extends BaseResource  {
 		 }
 		 this.userService.register(user);
 		 model.clear();
-		 return "redirect:/register";
+		 return "redirect:/register" + user.getUserId();
 		 }
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public ModelAndView showLogin(HttpServletRequest request, HttpServletResponse response) {
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("login");
-		mav.addObject("user", new UserMaster());
-		return mav;
-	}
+	  @RequestMapping("user/{id}")
+	    public String showProduct(@PathVariable Integer id, Model model) throws ServiceException{
+	        model.addAttribute("user", userService.get(id));
+	        return "ProfileView";
+	    }
+	  
+
+	  @RequestMapping(value="/ProfileEdit",method=RequestMethod.POST)
+		 public String updateUser(
+				 final UserMaster user, final BindingResult bindingResult, final ModelMap model) throws ServiceException {
+			 if (bindingResult.hasErrors()) {
+				 return "ProfileEdit";
+
+			 }
+			 this.userService.update(user);
+			 model.clear();
+			 return "redirect:/register" + user.getUserId();
+			 }
+
+@RequestMapping("user/edit/{id}")
+public String edit(@PathVariable Integer id, Model model) throws ServiceException{
+    model.addAttribute("user", userService.get(id));
+    return "ProfileEdit";
+}
+
 
 }
