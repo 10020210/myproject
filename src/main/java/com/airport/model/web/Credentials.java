@@ -16,8 +16,6 @@ public class Credentials implements Serializable{
 	@NotBlank(message = "global.error-blank")
 	private String password;
 	
-	@NotBlank(message = "global.error-blank")
-	private String captcha;
 
 	public String getUsername() {
 		return username;
@@ -35,12 +33,5 @@ public class Credentials implements Serializable{
 		this.password = password;
 	}
 
-	public String getCaptcha() {
-		return captcha;
-	}
-
-	public void setCaptcha(String captcha) {
-		this.captcha = captcha;
-	}
 
 }
