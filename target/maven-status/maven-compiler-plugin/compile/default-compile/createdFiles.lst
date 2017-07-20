@@ -34,7 +34,6 @@ com\pass\model\domain\TimeZoneTransitionTypeId.class
 com\airport\model\domain\OperatorLoginDetail.class
 com\pass\model\domain\SlaveMasterInfo.class
 com\airport\service\UserServiceImpl.class
-com\demo\mavendemo\Newsalerts.class
 com\airport\model\domain\ValidityDuarationMaster.class
 com\core\exception\NotAvailableException.class
 com\pass\model\domain\ColumnsPriv.class
@@ -63,13 +62,13 @@ com\airport\model\domain\PassCategory.class
 com\core\common\utils\UrlUtils.class
 com\airport\model\domain\DocumentSubcategoryPass.class
 com\pass\model\domain\TimeZoneTransitionId.class
+com\airport\model\domain\Newsalerts.class
 com\airport\model\domain\Help.class
 com\airport\model\domain\EduInstitutionList.class
 com\core\model\JsonDateSerializer.class
 com\airport\model\domain\DocumentSubCategoryCategory.class
 com\airport\model\domain\PassRequestOnline.class
 com\airport\model\domain\EduInstitutionMaster.class
-com\controller\HelloWordController.class
 com\airport\model\domain\DocumentSubCategoryMaster.class
 com\core\exception\mapper\ServiceExceptionMapper.class
 com\core\exception\ConditionFailedException.class

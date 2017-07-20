@@ -8,7 +8,6 @@ import javax.persistence.UniqueConstraint;
 
 @Entity
 @Table(name="003_Depot_List"
-    ,catalog="pmpml_live"
     , uniqueConstraints = @UniqueConstraint(columnNames="depot_name") 
 )
 public class DepotList  implements java.io.Serializable {

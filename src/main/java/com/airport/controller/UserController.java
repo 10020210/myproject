@@ -1,9 +1,8 @@
-
 package com.airport.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import javax.validation.Valid;
 import org.jboss.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -12,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,16 +39,22 @@ public class UserController extends BaseResource  {
 	     model.addAttribute("user", new UserMaster());
 	     return "register";
 	 }
+	 
+	 @RequestMapping(value = "/login", method=RequestMethod.GET)
+	 public String get(Model model) {
+	     model.addAttribute("user", new UserMaster());
+	     return "login";
+	 }
 	 @RequestMapping(value="/register",method=RequestMethod.POST)
 	 public String addUser(
-			 final UserMaster user, final BindingResult bindingResult, final ModelMap model) throws ServiceException {
+			 @Valid  final UserMaster user, final BindingResult bindingResult, final ModelMap model) throws ServiceException {
 		 if (bindingResult.hasErrors()) {
 			 return "register";
 
 		 }
 		 this.userService.register(user);
 		 model.clear();
-		 return "redirect:/register" + user.getUserId();
+		 return "redirect:/login" ;
 		 }
 	  @RequestMapping("user/{id}")
 	    public String showProduct(@PathVariable Integer id, Model model) throws ServiceException{

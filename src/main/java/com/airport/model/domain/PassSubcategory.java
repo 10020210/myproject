@@ -14,9 +14,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="02_Pass_Subcategory"
-    ,catalog="pmpml_live"
-)
+@Table(name="02_Pass_Subcategory")
 public class PassSubcategory  implements java.io.Serializable {
 
 

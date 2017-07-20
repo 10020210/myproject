@@ -14,9 +14,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name="115_User_Payment_Master"
-    ,catalog="pmpml_live"
-)
+@Table(name="115_User_Payment_Master")
 public class UserPaymentMaster  implements java.io.Serializable {
 
 

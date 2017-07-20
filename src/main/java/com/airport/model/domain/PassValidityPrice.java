@@ -15,9 +15,7 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name="04_Pass_Validity_Price"
-    ,catalog="pmpml_live"
-)
+@Table(name="04_Pass_Validity_Price")
 public class PassValidityPrice  implements java.io.Serializable {
 
 

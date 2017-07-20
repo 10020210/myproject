@@ -9,9 +9,7 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name="06_DocumentSubCategory_Master"
-    ,catalog="pmpml_live"
-)
+@Table(name="06_DocumentSubCategory_Master")
 public class DocumentSubCategoryMaster  implements java.io.Serializable {
 
 

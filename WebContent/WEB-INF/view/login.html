@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Login</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="../../resources/gl/style.css" th:href="@{/resources/gl/style.css}"
+	rel="stylesheet" media="screen" />
+<script src="../../resources/js/validation.js" th:src="@{/resources/js/validation.js}"></script>
+    <script src="../../resources/js/custom.js" th:src="@{/resources/js/custom.js}"></script>
+</head>
+<body>
+   <div th:insert="fragment/loginheader :: loginheader"></div>
+   
+   <div id="container" class="row">
+
+			<div class="title">Login or Create An Account</div>
+			<br>
+
+			<div class="col-md-6 col-sm-12 col-xs-12">
+				<img class="img-responsive" src="../../resources/gl/img/busby.jpg" th:src="@{/resources/gl/img/busby.jpg}" >
+
+
+			</div>
+
+			<div class="col-md-6 col-sm-12 col-xs-12" id="form">
+				<div class="formtitle">
+					<h3>Registered Users</h3>
+
+				</div>
+				<br>
+				<div class="suctitle">If you have an account with us,Please
+					login.</div>
+				<br>
+   
+    <form class="form-narrow form-horizontal" method="post" th:action="@{/login}" th:object="${user}" >
+    
+    
+    
+    
+    
+    <div class="input-group input-group-lg">
+						<span class="input-group-addon" ><img src="../../resources/gl/img/envelope.png" th:src="@{/resources/gl/img/envelope.png}"  style="height: 25px; width: 25px;margin-left: 13px;"> Email/Mobile*</span> <input
+							type="text" class="form-control" placeholder="Email ID" id="user"
+							 th:field="*{email}" value="" onblur="mailvalid(this)" style="width: 100%">
+					</div>  <span class="error_show" id="errorcode1"></span>
+            <div class="clearfix"></div> 
+            
+            <div class="input-group input-group-lg">
+						<span class="input-group-addon">
+							<img src="../../resources/gl/img/k.png" th:src="@{/resources/gl/img/k.png}"  style="height: 25px; width: 25px;">
+							Password*
+						</span> <input type="password" class="form-control" placeholder="Password"
+							 th:field="*{password}" value=""onblur="passvalid(this)" id="pass" style="width: 100%">
+					</div><span class="error_show" id="errorcode2"></span>
+            <div class="clearfix"></div>
+            
+            <div class="input-group input-group-lg">
+						<span class="input-group-addon">
+							<input type="text" id="txtCaptcha"
+            style="height:25px; text-align:center; border:none;width:90%;
+            font-weight:bold; font-family:Modern" readonly oncopy="return false" tabindex="-1">
+    <a href="#" onClick="DrawCaptcha()" tabindex="-1"><img src="../../resources/img/ref.png"  th:src="@{/resources/img/ref.png}" style="width:25px; height:25px;" ></a>
+
+						</span><input type="text" id="txtInput" class="form-control" onpaste="return false" placeholder="Enter Captcha here"  style="width: 100%" >
+					</div><span class="error_show" id="captcha_err"></span>
+            <div class="clearfix"></div>
+   <input type="button"
+				class="btn btn2-primary"   style="width:50%;" value="Register" th:href="@{\view\register.html}"><input type="submit" class="btn btn1-primary"
+				value="SIGN IN" th:onclick= "'javascript:return validation();'" style="width:50%;">
+				<br>
+				<div id="forgot"><a href="#"  data-toggle="modal" data-target="#myModal1" style="color: #31708F;">Forgot Your Password?</a></div>
+			</form>
+<script>
+    function emptyForgot(){
+	if(document.getElementById("uemail").value==""){
+		return false;
+	}
+	else{
+		return true;
+	}
+}
+function DrawCaptcha(){
+    var alpha = new Array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z');
+    var i;
+    for (i=0;i<6;i++){
+      var a = alpha[Math.floor(Math.random() * alpha.length)];
+      var b = alpha[Math.floor(Math.random() * alpha.length)];
+      var c = alpha[Math.floor(Math.random() * alpha.length)];
+      var d = alpha[Math.floor(Math.random() * alpha.length)];
+      var e = alpha[Math.floor(Math.random() * alpha.length)];
+      var f = alpha[Math.floor(Math.random() * alpha.length)];
+      var g = alpha[Math.floor(Math.random() * alpha.length)];
+     }
+   var code = a + ' ' + b + ' ' + ' ' + c + ' ' + d + ' ' + e + ' '+ f + ' ' + g;
+   document.getElementById("txtCaptcha").value = code
+   document.getElementById("txtInput").value="";
+ }
+ function removeSpaces(string){
+   return string.split(' ').join('');
+ }
+</script>
+    
+</body>
+</html>

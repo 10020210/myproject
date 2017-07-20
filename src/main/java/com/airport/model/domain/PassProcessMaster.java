@@ -11,9 +11,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name="992_Pass_Process_Master"
-    ,catalog="pmpml_live"
-)
+@Table(name="992_Pass_Process_Master")
 public class PassProcessMaster  implements java.io.Serializable {
 
 

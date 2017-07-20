@@ -16,19 +16,6 @@
  
     <mvc:annotation-driven />
    
-     
- <!--   <bean class = "org.springframework.web.servlet.view.InternalResourceViewResolver">
-   
-       <property name="prefix">
-       <value>/WEB-INF/view/</value>
-       </property>
-       
-       <property name="suffix">
-        <value>.jsp</value>
-       </property>
-   
-   </bean> -->
-   
    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
 		<property name="driverClassName" value="${core.db.connection.driver_class}" />
 		<property name="username" value="${core.db.connection.username}" />

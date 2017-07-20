@@ -3,15 +3,20 @@
  <head>
     <title>Signup</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-
+     <link rel="stylesheet" type="text/css" href="../../resources/assets/css/bootstrap-datetimepicker.min.css" th:href="@{/resources/assets/css/bootstrap-datetimepicker.min.css}"/>
+    <script src="../../resources/js/validation.js" th:src="@{/resources/js/validation.js}"></script>
+    
+    <link href="../../resources/gl/style.css" th:href="@{/resources/gl/style.css}"
+	rel="stylesheet" media="screen" />
+    <script src="../../resources/js/custom.js" th:src="@{/resources/js/custom.js}"></script>
 </head>
+
 <body>
- <div th:insert="fragment/header :: header"></div>
-   <div class="navbar navbar-inverse navbar-fixed-top">
-<div class="container">
-<form class="form-narrow form-horizontal" method="post" th:action="@{/register}" th:object="${user}" th:fragment="user">
-		
-		<div class="title" style="color: #008fcd;">
+   <div th:insert="fragment/header :: header"></div>
+   
+   <div id="container" class="row">
+
+<div class="title" style="color: #008fcd;">
 		Register an Account
 		
 		</div><br>
@@ -19,61 +24,454 @@
 		If You Already Have An Account, Please <a href="SignIn.jsp">Login</a>
 		
 		</div>
-		
+
+ <form class="form-narrow form-horizontal" method="post" th:action="@{/register}" th:object="${user}" th:fragment="user" > 
+
 			<div class="row">
 	<div id="info" class="col-md-12" style="color: #00599b;">
 	<h3>PERSONAL INFORMATION</h3>
 	
 	</div></div><br>
 	
-<!-- 	     <label for="salutation" class="col-lg-2 control-label" >Salutation</label>
-           <select name="salutation" id="salutation" class="form-control" style="
-    width: 100%;
-" onblur="checkSalutation()" onchange="checkSalutation()">	
-<option value="">Select Salutation</option>
-		<option value="Mr.">Mr.</option>
-		<option value="Ms.">Ms.</option>
+       	<div class="row">
+               <div class="col-md-6">
+			 <div id="left"  class="input-group input-group-lg">
+             <label for="salutation" class="input-group-addon" ><img src="../../resources/gl/img/1.svg" 
+           th:src="@{resources/gl/img/1.svg}" style="height:25px;width:25px;"> Salutation*</label>
+       <select type="text" th:field="*{salutation}" id="salutation" class="form-control" style="width:100%"  onblur="checkSalutation()" onchange="checkSalutation()" >	
+		 <option disabled="true" selected="selected" value="">Select Salutation</option>
+		 <option value="Mr.">Mr.</option>
 		<option value="Mrs.">Mrs.</option>
+		<option value="Ms.">Ms.</option>
 		<option value="Dr.">Dr.</option>
 		<option value="Prof.">Prof.</option>
-		<option value="Rev.">Rev.</option>
+		
+		</select></div>
+		</div>
 
-	</select> -->
-	
-		            <label for="fname" class="col-lg-2 control-label" >First Name</label>
-            <div class="col-lg-10" >
-                <input type="text" class="form-control" id="fname" placeholder="fname" th:field="*{fname}" />
+
+               <div class="col-md-6">
+			 <div class="input-group input-group-lg">
+		         <label for="fname" class="input-group-addon" ><img src="../../resources/gl/img/2.png" 
+                     th:src="@{resources/gl/img/2.png}" style="height:25px;width:25px;"/>First Name*</label>
+                <input type="text" class="form-control" id="firstname" placeholder="fname" th:field="*{fname}" onkeypress="return namevalidate(event)" onkeyup="namevalid(this,'errorcode1','Please enter valid first name')" onBlur="nonempty(this,'errorcode1','Please Enter Your First Name')" maxlength="18"  value="" style="width:100%" />
+                </div>
+        <span class="error_show1" id="errorcode1" style="margin-left: 4px; color: red;"></span>
+            <div class="clearfix"></div>
+			</div>
+			</div>
+			
+			
+				<div class="row">
+				<div class="col-md-6">
+			 <div id="left" class="input-group input-group-lg">
+             <label for="mname" class="input-group-addon" ><img src="../../resources/gl/img/2.png" 
+                     th:src="@{resources/gl/img/2.png}" style="height:25px;width:25px;">MiddleName</label>
+                <input type="text" class="form-control" id="mname" placeholder="mname" th:field="*{mname}"  onkeypress="return namevalidate(event)" onkeyup="namevalid(this,'errorcode11','Please enter valid middle name')" 
+                onBlur="fullnameCheck()" value="" style="width:100%" maxlength="14" />
+            </div>
+            <span class="error_show" id="errorcode11"></span>
+            <div class="clearfix"></div>
             </div>
             
-             <label for="mname" class="col-lg-2 control-label" >MiddleName</label>
-            <div class="col-lg-10" >
-                <input type="text" class="form-control" id="mname" placeholder="mname" th:field="*{mname}" />
-            </div>
             
-            <label for="lname" class="col-lg-2 control-label">Last Name</label>
-            <div class="col-lg-10">
-                <input type="text" class="form-control" id="lname" placeholder="lname" th:field="*{lname}"/>
+            <div class="col-md-6">
+			 <div  class="input-group input-group-lg">
+            <label for="lname" class="input-group-addon"><img src="../../resources/gl/img/2.png" 
+                     th:src="@{resources/gl/img/2.png}" style="height:25px;width:25px;">Last Name</label>
+                <input type="text" class="form-control" id="lastname" placeholder="lname" th:field="*{lname}" value="" onkeypress="return namevalidate(event)" onkeyup="namevalid(this,'errorcode12','Please enter valid last name')"  onBlur="nonempty(this,'errorcode12','Please Enter Your Last Name')" style="width:100%" maxlength="18"/>
+       </div>
+         <span class="error_show1" id="errorcode12"></span>
+            <div class="clearfix"></div>
+            </div>
         </div>
         
-         <label for="mobilenumber" class="col-lg-2 control-label" >MobileNumber</label>
-            <div class="col-lg-10" >
-                <input type="text" class="form-control" id="mobilenumber" placeholder="mobilenumber" th:field="*{mobilenumber}" />
+        
+        
+        	<div class="row">
+           	<div class="col-md-6">
+			 <div id="left" class="input-group input-group-lg">
+             <label for="fullnameOnCard" class="input-group-addon" ><img src="../../resources/gl/img/2.png" 
+                     th:src="@{resources/gl/img/2.png}" style="height:25px;width:25px;">Full Name On Card</label>
+         <input type="text" class="form-control" id="fullname" placeholder="fullnameOnCard" th:field="*{fullnameOnCard}" value="" maxlength="50" style="width:100%" readonly tabindex="-1" />
+            </div>
+              <span  class="error_show1" id="errorc"></span>
+            <div class="clearfix"></div>
+			</div>
+      
+      
+      				<div class="col-md-6">
+			 <div  class="input-group input-group-lg">
+       <label for="aadharcardNo" class="input-group-addon" ><img src="../../resources/gl/img/aadhar.png" 
+                     th:src="@{resources/gl/img/aadhar.png}" style="height:25px;width:25px;"> Aadhar No*</label>
+                <input type="text" class="form-control" id="aadhar" placeholder="Your Aadhar No" th:field="*{aadharcardNo}" onblur="vhCheck(this)" maxlength="12" value="" style="width:100%" onkeypress="return numvalidate(event)" />
+            </div>
+		<input type="hidden" hidden=true  class="form-control"  id="checkaadhar">  
+			<span  class="error_show1" id="errorcode4"></span>
+            <div class="clearfix"></div>
+            </div>
+		
+		</div>
+		
+		
+			<div class="row">
+				<div class="col-md-6">
+       <div id="left" class="input-group input-group-lg">
+		     <label for="gender" class="input-group-addon" ><img src="../../resources/gl/img/2.png" 
+           th:src="@{resources/gl/img/2.png}" style="height:25px;width:25px;"> Gender*</label>
+        <select th:field="*{gender}" id="gender" class="form-control" style="width: 100%;"onchange="checkGender()" >	
+		 <option value="">Select</option>
+		<option value="Male">Male</option>
+		<option value="Female">Female</option>
+		<option value="Other">Other</option>
+		
+		</select></div>
+		  <span  class="error_show" id="errorcode19"></span>
+            <div class="clearfix"></div>
+            </div>
+		
+		
+		   <div class="col-md-6">
+			 <div  class="input-group input-group-lg">
+			 <label for="email" class="input-group-addon" ><img src="../../resources/gl/img/newmail.png" 
+			   th:src="@{resources/gl/img/newmail.png}" style="height:25px;width:25px;">   Email*</label>
+                <input type="text" class="form-control" id="email" placeholder="Email Address" th:field="*{email}" maxlength="35" onblur='nonemptyemail(this)' value="" style="width:100%" >
+            </div>
+				 <span id="email_err" class="bar"></span>
+               <input type="hidden" hidden=true  class="form-control"  id="checkemail">
+			<span class="error_show" id="errorcode3"></span>
+            <div class="clearfix"></div>
+            </div>
+		
+		</div>
+		
+			<div class="row">
+		  <div class="col-md-6">
+			 <div id="left" class="input-group input-group-lg">
+			 <label for="mobilenumber" class="input-group-addon" ><img src="../../resources/gl/img/smartphone.png" 
+                     th:src="@{resources/gl/img/smartphone.png}" style="height:25px;width:25px;"/>MobileNumber</label>
+            <input type="text" class="form-control" id="mobile" placeholder="mobilenumber" th:field="*{mobilenumber}" onBlur="nonemptymoblie(this);" maxlength="12" value="" style="width:100%" />
+            </div>
+                        <input type="hidden" hidden=true  class="form-control"  id="checkmobile"> 
+			<span  class="error_show1" id="errorcode2"></span>
+            <div class="clearfix"></div>
+            
+            </div>
+		
+		       <div class="col-md-6">
+			 <div  class="input-group input-group-lg"> 
+        <label for="emergencyContact" class="input-group-addon" ><img src="../../resources/gl/img/newphone1.png" 
+                     th:src="@{resources/gl/img/newphone1.png}" style="height:25px;width:25px;"/>Emergency Contact No</label>
+                <input type="text" class="form-control" id="mobilenumber" placeholder="Mobile No" th:field="*{emergencyContact}" maxlength="10" onBlur="phonevalid(this,'errorcode15'); "value="" style="width:100%"/>
+            </div>
+            <span  class="error_show" id="errorcode15"></span>
+            <div class="clearfix"></div>
+            </div>
+		</div>
+		
+		
+        	<div class="row">  
+          	<div class="col-md-6">
+			 <div id="left"  class="input-group input-group-lg">
+             <label for="password" class="input-group-addon" ><img src="../../resources/gl/img/locked.png"
+              th:src="@{resources/gl/img/locked.png}" style="height:25px;width:25px;">Password*</label>
+                <input type="password" class="form-control" placeholder="Password" th:field="*{password}" id="password1" value="" onkeyup="nonemptypassword()" onblur="nonemptypassword()" maxlength="15" style="width:100%" oncopy="return false" />
+           
+			</div>
+            <span  class="error_show1" id="errorcodepass"></span>
+            <div class="clearfix"></div>
+						
+			</div>
+            
+		
+	
+	
+	       <div class="col-md-6">
+			 <div class="input-group input-group-lg">
+                 <label for="password" class="input-group-addon" ><img src="../../resources/gl/img/locked.png" 
+               th:src="@{resources/gl/img/locked.png}" style="height:25px;width:25px;">   Confirm Password*</label>
+                              <input type="password" class="form-control" placeholder="Confirm Password" th:field="*{password}" value="" id="password2" maxlength="15" onblur="neconfirmpassword()" onkeyup="neconfirmpassword()" style="width:100%" oncopy="return false"  >
+            </div>
+		  <span  class="error_show" id="errorcode18"></span>
+            <div class="clearfix"></div>
+			</div>
+       </div>
+       
+       	<div class="row">
+	       <div class="col-md-6">
+			 <div id="left" class="input-group input-group-lg">
+              <label th:field="*{disability}" class="input-group-addon" ><img src="../../resources/gl/img/chair.png"  
+                th:src="@{resources/gl/img/chair.png}" style="height:25px;width:25px;"> Are You Differently Abled ?</label>
+                 <div id="radi">
+			<label class="radio-inline" style="padding-top: 12px;"> 
+              <input type="radio" th:name="${'priorities[' + disability + ']'}" value="yes" />Yes
+              </label>
+              <label class="radio-inline" style="padding-top: 12px;">
+              <input type="radio" th:name="${'priorities[' + disability + ']'}" value="no" />No
+              </label>
+            </div></div>
+            </div>
+	
+
+        
+	       <div class="col-md-6">
+			 <div class="input-group input-group-lg">
+            <label for="disabiltyType" class="input-group-addon" ><img src="../../resources/gl/img/chair.png" 
+			               th:src="@{resources/gl/img/chair.png}" style="height:25px;width:25px;"> Type of Handicapped</label>
+        <select type="text" th:field="*{disabiltyType}" id="disabiltyType" class="form-control" style="width: 100%;" >	
+				         <option value="select">Select </option>
+						 <option value="physically">Physically Challenged</option>
+						<option value="mentally">Mentally Challenged</option>
+						<option value="visually">Visually Challenged</option>
+						<option value="Mentally ill">Mentally ill</option>
+
+	        </select></div>
+	        </div>
+				  
+				  </div>
+	 	<!--   <label for="dob" class="col-lg-2 control-label" ><img src="../../resources/gl/img/calendar.png"
+				   th:src="@{resources/gl/img/calendar.png}" style="height:25px;width:25px;"> Date Of Birth*</label>
+		     <input type="date" class="form-control" id="dob" placeholder="DD-MM-YYYY" th:field="*{dob}" value="" style="width:75%" />
+	   <input type="text" class="form-control"  name="dob" th:value="${#dates.format(user.dob,'yyyy/MM/dd HH:mm')}"/>
+	    <br> -->
+	      
+	      	<div class="row">
+        	<div class="col-md-6">
+			 <div id="left" class="input-group input-group-lg">
+         <label for="address" class="input-group-addon" > <img src="../../resources/gl/img/home123.png" 
+               th:src="@{resources/gl/img/home123.png}" style="height:25px;width:25px;">   Address*</label>
+                <input type="text" class="form-control" placeholder="Your Address" th:field="*{address}" id="address" value="" onblur="nonemptyaddress(this,'errorcode_a1','Please Enter your Address')" onkeypress="return addressvalidate(event)" onkeyup="checkResident()" style="width:100%">
+            </div>
+            		<span  class="error_show" id="errorcode_a1"></span>
+            <div class="clearfix"></div>
             </div>
             
-             <label for="fullnameOnCard" class="col-lg-2 control-label" >Full Name On Card</label>
-            <div class="col-lg-10" >
-                <input type="text" class="form-control" id="fullnameOnCard" placeholder="fullnameOnCard" th:field="*{fullnameOnCard}" />
+            
+	 <div class="col-md-6">
+			 <div  class="input-group input-group-lg">
+	  <label for="address" class="input-group-addon" > <img src="../../resources/gl/img/address.png" 
+               th:src="@{resources/gl/img/address.png}" style="height:25px;width:25px;">   Street*</label>
+                <input type="text" class="form-control" placeholder="Your Street" th:field="*{address}" id="street" value="" onblur="nonemptyaddress(this,'errorcode_a2',' Please Enter your Street')"onkeypress="return mobvalidatefun(event)" onkeyup="checkResident()" style="width:100%">
             </div>
-        
+            <span  class="error_show1" id="errorcode_a2"></span>
+            <div class="clearfix"></div>
+			
+			</div>
+		</div>
+	
+	
+		<div class="row">
+		<div class="col-md-6">
+			 <div id="left" class="input-group input-group-lg">
+	 <label for="address" class="input-group-addon" > <img src="../../resources/gl/img/home123.png" 
+               th:src="@{resources/gl/img/address.png}" style="height:25px;width:25px;">    Area*</label>
+                <input type="text" class="form-control" placeholder="Your Area" th:field="*{address}" id="area" value="" maxlength="25" onblur="nonemptyaddress(this,'errorcode_a3',' Please Enter your Area ')" onkeypress="return mobvalidatefun(event)" onkeyup="checkResident()" style="width:100%">
+            </div>
+            <span  class="error_show" id="errorcode_a3"></span>
+            <div class="clearfix"></div>
+			
+			</div>
+            
+            
+            <div class="col-md-6">
+			 <div  class="input-group input-group-lg">
+             <label for="address" class="input-group-addon" > <img src="../../resources/gl/img/zip.png" 
+               th:src="@{resources/gl/img/zip.png}" style="height:25px;width:25px;">  Pincode*</label>
+                <input type="text" class="form-control" placeholder="Your Area" th:field="*{address}" id="pincode"maxlength="6" value="" onkeyup="checkResident()" onkeypress="return numvalidate(event)" 
+                onblur="nonemptyaddress(this,'errorcode17','Please Enter Your Pincode')" style="width:100%">
+            </div>
+			<span class="error_show1" id="errorcode17"></span>
+            <div class="clearfix"></div>
+			
+			</div>
+			</div>
+	
+	<div class="row">
+			<div id="info" class="col-md-12" style="color: #00599b;">
+			<input type="checkbox" id="checkresi" onclick="checkResident()"><span><font size="3">  Communication address same as Permanent address</font></span>
+			</div></div>
+			
+	      <div id="viewtempaddr"  class="hidetempaddr"> 		
+ <div class="row">
+<div id="info" class="col-md-12" style="color: #00599b;">
+<h3>COMMUNICATION ADDRESS</h3>
+</div></div> 
+	
+		<div class="row">
+	     	<div class="col-md-6">
+			 <div id="left" class="input-group input-group-lg">
+	 <label for="officeaddress" class="input-group-addon" > <img src="../../resources/gl/img/home123.png" 
+                th:src="@{resources/gl/img/home123.png}" style="height:25px;width:25px;">   Address*</label>
+                <input type="text" class="form-control e1" placeholder="Your Address" th:field="*{officeaddress}" id="tempaddress" maxlength="45" value="" onblur="nonemptytempaddress(this,'errorcode_at1','Please Enter your Address')" onkeypress="return addressvalidate(event)" style="width:100%">
+            </div>
+            <span  class="error_show" id="errorcode_at1"></span>
+            <div class="clearfix"></div>
+            </div>
+            
+            
+            	<div class="col-md-6">
+			 <div  class="input-group input-group-lg">
+                <label for="officeaddress" class="input-group-addon" > <img src="../../resources/gl/img/home123.png" 
+                th:src="@{resources/gl/img/home123.png}" style="height:25px;width:25px;">   Street*</label>
+                <input type="text" class="form-control e1" placeholder="Your Street" th:field="*{officeaddress}" id="tempstreet" maxlength="25" value="" onblur="nonemptytempaddress(this,'errorcode_at2',' Please Enter your Street')"onkeypress="return mobvalidatefun(event)" style="width:100%">
+            </div>
+            	<span  class="error_show1" id="errorcode_at2"></span>
+            <div class="clearfix"></div>
+			</div>
+			</div>
+			
+				<div class="row">
+            <div class="col-md-6">
+			 <div id="left" class="input-group input-group-lg">
+                <label for="officeaddress" class="input-group-addon" > <img src="../../resources/gl/img/home123.png" 
+                th:src="@{resources/gl/img/home123.png}" style="height:25px;width:25px;">   Area*</label>
+                <input type="text" class="form-control e1" placeholder="Your Area" th:field="*{officeaddress}" id="temparea" value="" maxlength="25" onblur="nonemptytempaddress(this,'errorcode_at3',' Please Enter your Area ')" onkeypress="return mobvalidatefun(event)" style="width:100%">
+            </div>
+            <span  class="error_show" id="errorcode_at3"></span>
+            <div class="clearfix"></div>
+			
+			</div>
+            
+            <div class="col-md-6">
+			 <div  class="input-group input-group-lg">
+                <label for="officeaddress" class="input-group-addon" > <img src="../../resources/gl/img/home123.png" 
+                th:src="@{resources/gl/img/home123.png}" style="height:25px;width:25px;">   Pincode*</label>
+                <input type="text" class="form-control e1" placeholder="Your Pincode" th:field="*{officeaddress}" id="temppincode" maxlength="6" value="" onkeypress="return numvalidate(event)" 
+                onblur="nonemptytempaddress(this,'errorcode_at4','Please Enter Your Pincode')" style="width:100%">
+            </div>
+           	<span class="error_show1" id="errorcode_at4"></span>
+            <div class="clearfix"></div>
+			</div>
+		</div>
+
+   </div>
+
         <div class="form-group">
             <div class="col-lg-offset-2 col-lg-10">
-                <button type="submit" class="btn btn-default">Sign up</button>
+     <center><button type="submit" name="action" value="register"   th:onclick= "'javascript:return registrationCheck();'">REGISTER</button></center><br>
+                                
             </div>
         </div>
       <div th:insert="fragment/footer :: footer"></div>
+
+ </form>
+</div>
+</div>
+
+<script type="text/javascript" >
+  $(document).ready(function(){
+	    $("#checkrop").click(function(){
+	    	 if($(this).is(':checked')){
+	    		 $("#viewtempaddr").hide();
+	    		 document.getElementById("ropCheckValue").value="1";
+	    	    } else {
+	    	    	$("#viewtempaddr").show();
+	    	    	 document.getElementById("ropCheckValue").value="0";
+	    	    }
+	    	
+	    });
+	   
+	});
+  </script>
+  <script>
   
-</form>
-</div>
-</div>
+  function mobvalidatefun(e) {
+		var key;
+		var keychar;
+		if (window.event)
+		key = window.event.keyCode;
+		else if (e)
+		key = e.which;
+		else
+		return true;
+		keychar = String.fromCharCode(key);
+		keychar = keychar.toLowerCase();
+		// control keys
+		if ((key == null) || (key == 0) || (key == 8) || (key == 9)
+		|| (key == 13) || (key == 27))
+		return true;
+		else if (!(("0123456789abcdefghijklmnopqrstuvwxyz- ").indexOf(keychar) > -1)) {
+		return false;
+		}
+		}
+	function addressvalidate(e) {
+		var key;
+		var keychar;
+		if (window.event)
+		key = window.event.keyCode;
+		else if (e)
+		key = e.which;
+		else
+		return true;
+		keychar = String.fromCharCode(key);
+		keychar = keychar.toLowerCase();
+		// control keys
+		if ((key == null) || (key == 0) || (key == 8) || (key == 9)
+		|| (key == 13) || (key == 27))
+		return true;
+		else if (!(("0123456789abcdefghijklmnopqrstuvwxyz#'.,-/ ").indexOf(keychar) > -1)) {
+		return false;
+		}
+		}
+	function namevalidate(e) {
+		var key;
+		var keychar;
+		if (window.event)
+		key = window.event.keyCode;
+		else if (e)
+		key = e.which;
+		else
+		return true;
+		keychar = String.fromCharCode(key);
+		keychar = keychar.toLowerCase();
+		// control keys
+		if ((key == null) || (key == 0) || (key == 8) || (key == 9)
+		|| (key == 13) || (key == 27))
+		return true;
+		else if (!(("abcdefghijklmnopqrstuvwxyz ").indexOf(keychar) > -1)) {
+		return false;
+		}
+		}
+	</script> 
+  <script> 
+   function checkResident(){
+		if(document.getElementById("checkresi").checked){
+			document.getElementById("tempaddress").value=document.getElementById("address").value;
+			document.getElementById("tempstreet").value=document.getElementById("street").value;
+			document.getElementById("temparea").value=document.getElementById("area").value;
+			document.getElementById("temppincode").value=document.getElementById("pincode").value;
+			document.getElementById("errorcode_at4").innerHTML="";
+			document.getElementById("errorcode_at3").innerHTML="";
+			document.getElementById("errorcode_at2").innerHTML="";
+			document.getElementById("errorcode_at1").innerHTML="";
+			document.getElementById("tempaddress").style.borderColor="#ccc";
+			document.getElementById("tempstreet").style.borderColor="#ccc";
+			document.getElementById("temparea").style.borderColor="#ccc";
+			document.getElementById("temppincode").style.borderColor="#ccc";
+		} else{
+			document.getElementById("tempaddress").value="";
+			document.getElementById("tempstreet").value="";
+			document.getElementById("temparea").value="";
+			document.getElementById("temppincode").value="";
+		} 
+		
+	}
+   function checkResident2(){
+		if(document.getElementById("checkresi").checked){
+			document.getElementById("tempaddress").value=document.getElementById("address").value;
+			document.getElementById("tempstreet").value=document.getElementById("street").value;
+			document.getElementById("temparea").value=document.getElementById("area").value;
+			document.getElementById("temppincode").value=document.getElementById("pincode").value;
+			document.getElementById("errorcode_at4").innerHTML="";
+			document.getElementById("errorcode_at3").innerHTML="";
+			document.getElementById("errorcode_at2").innerHTML="";
+			document.getElementById("errorcode_at1").innerHTML="";
+			document.getElementById("tempaddress").style.borderColor="#ccc";
+			document.getElementById("tempstreet").style.borderColor="#ccc";
+			document.getElementById("temparea").style.borderColor="#ccc";
+			document.getElementById("temppincode").style.borderColor="#ccc";
+		}}
+   </script>
+
 </body>
 </html>

@@ -12,9 +12,7 @@ import javax.persistence.TemporalType;
 
 
 @Entity
-@Table(name="116_User_Receipt_Master"
-    ,catalog="pmpml_live"
-)
+@Table(name="116_User_Receipt_Master")
 public class UserReceiptMaster  implements java.io.Serializable {
 
 

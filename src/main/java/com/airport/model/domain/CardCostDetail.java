@@ -7,9 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="11_Card_Cost_Detail"
-    ,catalog="pmpml_live"
-)
+@Table(name="11_Card_Cost_Detail")
 public class CardCostDetail  implements java.io.Serializable {
 
 

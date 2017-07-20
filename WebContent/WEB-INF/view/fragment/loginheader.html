@@ -1,0 +1,168 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/3.3.4/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen"/>
+ 
+    <script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js"
+            th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>
+ <style>
+#topheader {
+	background-color: white;
+	height: 92px;
+	/* border: 1px solid red; */
+	width: 68%;
+}
+
+.leftlogo {
+	float: left;
+}
+
+.rightlogo {
+	float: right;
+}
+.container {
+box-shadow: 0 6px 5px rgba(0, 0, 0, 0.26);
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+}
+.heading {
+	width: 100%;
+	/* float: left; */
+	margin-top: 24px;
+	font-size: 20px;
+}
+.formtitle {
+    margin-top: -40px;
+}
+
+.inner {
+	height: 450px;
+	background-color: white;
+	margin-left: 12%;
+	align: center;
+	width: 71%;
+}
+.input-group-addon {
+    min-width: 184px !important;
+    }
+.title {
+	font-size: 26px;
+	margin-left: 26px;
+	padding-top: 20px;
+}
+
+.formtitle {
+
+}
+
+.suctitle {
+
+}
+
+.btn1-primary {
+	color: #fff;
+	background-color: #33AB73;
+	border-color: #eee;
+}
+
+.btn2-primary {
+	color: #fff;
+	background-color: #008ECD;
+	border-color: #eee;
+}
+
+#forgot {
+    float: right;
+    color: red;
+    margin-left: -9px;
+
+    margin-top: 9px;
+}
+
+.footer {
+	background: #e6e6e6;
+	text-align: center;
+	position: fixed;
+	bottom: 0px;
+	left: 0px;
+	width: 100%;
+	z-index: 9999999999;
+	height: 30px;
+	padding-top: 8px;
+}
+
+.main-header {
+	height: auto;
+	position: relative;
+	width: 100%;
+	background-color: #ffffff;
+	padding-top: 5px;
+}
+
+.texlg {
+	text-align: center;
+    font-size: 18px;
+    font-weight: bolder;
+    padding: 27px 0px;
+    color: #404040;
+}
+
+#container {
+
+}
+
+.empty {
+	height: 40px;
+	width: 100%;
+}
+.error_show{
+margin-left: 2px !important;
+color: red;
+}
+</style>
+</head>
+<body>
+ <div th:fragment="loginheader">
+ <div id="head">
+
+		<a class="menu" href="#">Contact</a> <a class="menu" href="#">Help</a>
+
+	</div>
+	<div class="container">
+		<div class="main-header">
+			<div class="row">
+				<div class="col-lg-2 col-md-2 col-xs-1">
+					<a> <img
+						src="../../resources/gl/img/pmpmllogo.png"   th:src="@{/resources/gl/img/pmpmllogo.png}"  alt="iNetwork">
+					</a>
+
+				</div>
+				<div class="col-lg-7 col-md-7 col-xs-8">
+					<div class="texlg">
+						<span id="lbltit" title="PUNE MAHANAGAR PARIVAHAN MAHAMANDAL LTD">PUNE
+							MAHANAGAR PARIVAHAN MAHAMANDAL LTD</span>
+
+							<span id="lbltit1" title="PUNE MAHANAGAR PARIVAHAN MAHAMANDAL LTD" style="margin-left: 0%;">PMPML</span>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-xs-2">
+					<img id="plpl" src="../../resources/gl/img/rainbowlogo.png"   th:src="@{/resources/gl/img/rainbowlogo.png}" alt="rainbowlogo"
+						class="pull-right">
+				</div>
+			</div>
+		</div>
+		</div>
+		</div>
+		<hr>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

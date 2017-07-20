@@ -60,7 +60,7 @@ public class SpringWebConfig extends WebMvcConfigurerAdapter implements Applicat
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
      
         registry.addResourceHandler("/resources/**")
-      .addResourceLocations("/resources/gl/img");
+      .addResourceLocations("/resources/");
     }
 
 }

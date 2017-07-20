@@ -8,9 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="07_DocumentSubCategory_Category"
-    ,catalog="pmpml_live"
-)
+@Table(name="07_DocumentSubCategory_Category")
 public class DocumentSubCategoryCategory  implements java.io.Serializable {
 
 

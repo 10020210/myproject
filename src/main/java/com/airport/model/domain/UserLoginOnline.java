@@ -11,9 +11,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name="111_User_Login_Online"
-    ,catalog="pmpml_live"
-)
+@Table(name="111_User_Login_Online")
 public class UserLoginOnline  implements java.io.Serializable {
 
 

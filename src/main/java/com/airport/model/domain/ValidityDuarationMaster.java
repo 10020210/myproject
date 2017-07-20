@@ -14,7 +14,6 @@ import javax.persistence.UniqueConstraint;
 
 @Entity
 @Table(name="03_Validity_Duaration_Master"
-    ,catalog="pmpml_live"
     , uniqueConstraints = @UniqueConstraint(columnNames="validity_name") 
 )
 public class ValidityDuarationMaster  implements java.io.Serializable {

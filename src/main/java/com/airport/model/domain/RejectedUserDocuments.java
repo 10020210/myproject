@@ -7,9 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="114_Rejected_User_Documents"
-    ,catalog="pmpml_live"
-)
+@Table(name="114_Rejected_User_Documents")
 public class RejectedUserDocuments  implements java.io.Serializable {
 
 

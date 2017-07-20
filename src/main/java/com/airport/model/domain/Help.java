@@ -11,9 +11,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name="help"
-    ,catalog="pmpml_live"
-)
+@Table(name="help")
 public class Help  implements java.io.Serializable {
 
 

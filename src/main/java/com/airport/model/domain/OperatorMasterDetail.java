@@ -13,7 +13,6 @@ import javax.persistence.UniqueConstraint;
 
 @Entity
 @Table(name="005_Operator_Master_Detail"
-    ,catalog="pmpml_live"
     , uniqueConstraints = @UniqueConstraint(columnNames="operator_username") 
 )
 public class OperatorMasterDetail  implements java.io.Serializable {

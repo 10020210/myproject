@@ -10,9 +10,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name="006_Operator_Login_Detail"
-    ,catalog="pmpml_live"
-)
+@Table(name="006_Operator_Login_Detail")
 public class OperatorLoginDetail  implements java.io.Serializable {
 
 

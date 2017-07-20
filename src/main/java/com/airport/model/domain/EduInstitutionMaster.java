@@ -13,9 +13,7 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name="09_Edu_Institution_Master"
-    ,catalog="pmpml_live"
-)
+@Table(name="09_Edu_Institution_Master")
 public class EduInstitutionMaster  implements java.io.Serializable {
 
 

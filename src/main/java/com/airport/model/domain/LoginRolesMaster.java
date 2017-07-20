@@ -12,9 +12,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="001_Login_Roles_Master"
-    ,catalog="pmpml_live"
-)
+@Table(name="001_Login_Roles_Master")
 public class LoginRolesMaster  implements java.io.Serializable {
 
 

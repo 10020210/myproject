@@ -11,9 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="10_Edu_Institution_List"
-    ,catalog="pmpml_live"
-)
+@Table(name="10_Edu_Institution_List")
 public class EduInstitutionList  implements java.io.Serializable {
 
 

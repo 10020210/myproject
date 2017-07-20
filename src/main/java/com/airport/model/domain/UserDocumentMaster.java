@@ -8,9 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="112_User_Document_Master"
-    ,catalog="pmpml_live"
-)
+@Table(name="112_User_Document_Master")
 public class UserDocumentMaster  implements java.io.Serializable {
 
 

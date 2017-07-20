@@ -6,15 +6,17 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
-@Table(name="110_UserMaster"
-    ,catalog="pmpml_live"
-)
+@Table(name="110_UserMaster")
 public class UserMaster  implements java.io.Serializable {
 
 
@@ -726,9 +728,6 @@ public class UserMaster  implements java.io.Serializable {
     public void setNewsPaper(String newsPaper) {
         this.newsPaper = newsPaper;
     }
-
-
-
 
 }
 

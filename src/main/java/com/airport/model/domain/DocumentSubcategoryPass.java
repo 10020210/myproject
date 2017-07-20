@@ -8,9 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="08_DocumentSubcategory_Pass"
-    ,catalog="pmpml_live"
-)
+@Table(name="08_DocumentSubcategory_Pass")
 public class DocumentSubcategoryPass  implements java.io.Serializable {
 
 

@@ -11,7 +11,6 @@ import javax.persistence.UniqueConstraint;
 
 @Entity
 @Table(name="771_micard_Master"
-    ,catalog="pmpml_live"
     , uniqueConstraints = {@UniqueConstraint(columnNames="chip_no"), @UniqueConstraint(columnNames="batch_no")} 
 )
 public class MicardMaster  implements java.io.Serializable {

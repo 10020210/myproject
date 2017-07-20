@@ -9,9 +9,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="12_Organization_Type"
-    ,catalog="pmpml_live"
-)
+@Table(name="12_Organization_Type")
 public class OrganizationType  implements java.io.Serializable {
 
 

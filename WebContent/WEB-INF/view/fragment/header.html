@@ -8,35 +8,157 @@
     <script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js"
             th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>
  
+   <style>
+#topheader{
+
+    background-color: white;
+    height: 92px;
+    /* border: 1px solid red; */
+    width: 68%;
+}.leftlogo{
+
+float:left;
+}
+.input-group-addon {
+    min-width: 158px !important;}
+.rightlogo{
+float:right;
+}
+.heading{
+ 
   
+    width: 100%;
+    /* float: left; */
+    margin-top: 24px;
+    font-size: 20px;
+}
+.error_show1{
+margin-left:2px !important;
+color: red
+}
+.error_show{
+margin-left:14px !important;
+color: red
+}
+.radio-inline {
+    padding-top: 12px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.inner{
+
+height: 450px;
+    background-color: white;
+    margin-left: 12%;
+    align: center;
+    width: 71%;
+
+}
+.title{
+font-size: 26px;
+    margin-left: 26px;
+    padding-top: 20px;
+
+}
+.formtitle{
+   
+}
+.subtitle{
+font: 17px/1.5 "../fonts/BentonSans-Regular", Arial, sans-serif;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    margin-left: 26px;
+    /* font-size: 16px; */
+    margin-top: -20px;
+}
+.btn1-primary {
+    color: #fff;
+    background-color: #25A669;
+    border-color: #eee;
+}
+.btn2-primary {
+    color: #fff;
+    background-color: #777;
+    border-color: #eee;
+}
+#forgot{
+float:right;
+color:red;
+}
+.footer{
+    background: #e6e6e6;
+    text-align: center;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    z-index: 9999999999;
+    height: 30px;
+    padding-top: 8px;
+}
+.main-header {
+    height: auto;
+    position: relative;
+    width: 100%;
+    background-color: #ffffff;
+    padding-top: 5px;
+}
+.texlg {
+    font-size: 18px;
+    font-weight: bolder;
+    padding: 27px 0px;
+    color: #404040;
+}
+#container{
+}
+.empty{
+height:70px;
+width:100%;
+
+
+}
+#info{
+margin-left: 26px;
+}
+#left{margin-left: 13px;
+}
+#radi{
+border-bottom-right-radius: 9px;
+    /* border-radius: 5px; */
+    height: 48px;
+    border: 1px solid #cccccc;
+    border-top-right-radius: 10px;
+}
+#ddlPassport{
+
+}
+#smicon{
+float: left;
+    margin-left: -3px;
+}
+
+</style>
 </head>
 <body>
- 
-<div class="container">
-    <div th:fragment="header">
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <div class = "navbar-header">
-	                    <a class="navbar-brand" href="#" th:href="@{/}">Help</a>
-	                   <a class="navbar-brand" href="#" th:href="@{/contact}">Contact</a>
+ <div th:fragment="header">
+<div id="head">
+    <a class="menu" href="#">Contact</a>
+  <a class="menu" href="#">Help</a>
 	                  
+   </div>
           
- 
-        <div align = "center" class="jumbotron">
- <a href="#" >
-                     <img src="../../resources/img/pmpmllogo.png" 
-                     th:src="@{resources/img/pmpmllogo.png}"/>
+ <div class="container">
+<div class="main-header">
+ <center><a href="#" >
+                     <img  src="../../resources/gl/img/pmpmllogo.png" 
+                     th:src="@{resources/gl/img/pmpmllogo.png}"/>
              
-                    <span>PUNE MAHANAGAR PARIVAHAN MAHAMANDAL LTD</span>
-          
-                <img  src="../../resources/img/rainbowlogo.png" 
-                     th:src="@{resources/img/rainbowlogo.png}" alt="rainbowlogo" style="width:138px;"/></a>
-           
+                    </a><span id="lbltit" class="texlg" title="PUNE MAHANAGAR PARIVAHAN MAHAMANDAL LTD">PUNE MAHANAGAR PARIVAHAN MAHAMANDAL LTD</span>
+            <img  src="../../resources/img/rainbowlogo.png" 
+                     th:src="@{resources/img/rainbowlogo.png}" alt="rainbowlogo" style="width:138px;"/><center>
         </div><hr>
-              </div>
-            </div>
-        </nav>
-    </div>
-</div>
+ </div>
+ </div>
 </body>
 </html>

@@ -9,9 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="002_Login_Menu_Master"
-    ,catalog="pmpml_live"
-)
+@Table(name="002_Login_Menu_Master")
 public class LoginMenuMaster  implements java.io.Serializable {
 
 

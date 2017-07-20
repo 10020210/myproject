@@ -291,13 +291,7 @@ function DrawCaptcha(){
  instructions how to enable JavaScript in your web browser</a>.
 </noscript>
 
-
-
-	<div class="footer">
-	Copyright © 2017 Powered by PMPML.</strong>
-	</div>
-
-
+<div th:insert="fragment/footer :: footer"></div>
 
 <script src="assets/js/jquery-1.10.2.js"></script>
     <!-- Bootstrap Js -->

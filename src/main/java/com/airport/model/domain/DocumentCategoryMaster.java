@@ -11,7 +11,6 @@ import javax.persistence.UniqueConstraint;
 
 @Entity
 @Table(name="05_DocumentCategory_Master"
-    ,catalog="pmpml_live"
     , uniqueConstraints = @UniqueConstraint(columnNames="document_proof_type") 
 )
 public class DocumentCategoryMaster  implements java.io.Serializable {

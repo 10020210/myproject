@@ -11,9 +11,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name="991_Pass_Request_Online"
-    ,catalog="pmpml_live"
-)
+@Table(name="991_Pass_Request_Online")
 public class PassRequestOnline  implements java.io.Serializable {
 
 

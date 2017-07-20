@@ -11,7 +11,6 @@ import javax.persistence.UniqueConstraint;
 
 @Entity
 @Table(name="01_Pass_Category"
-    ,catalog="pmpml_live"
     , uniqueConstraints = @UniqueConstraint(columnNames="category_name") 
 )
 public class PassCategory  implements java.io.Serializable {
